@@ -1,35 +1,90 @@
 {{ define "main" }}
 
-<div class="jumbotron text-center hpy-jumbo-section">
-  <p class="hpy-jumbo-title">A modern approach for extending Python in C</p>
-  <p class="hpy-jumbo-subtitle">
-    Developed by members of the Python Software Foundation.
-  </p>
+<div style="height: 100vh">
+  <div class="jumbotron text-center hpy-jumbo-section">
+    <p class="hpy-jumbo-title">A modern approach for extending Python in C</p>
+    <p class="hpy-jumbo-subtitle">
+      Developed by members of the Python Software Foundation.
+    </p>
+  </div>
+
+  <div style="display: flex; justify-content: center">
+    <div class="hpy-card text-center">
+      <div class="hpy-card-title">Performance</div>
+      <div class="hpy-card-content">
+        Much faster on alternative implementations such as PyPy, GraalPy.
+      </div>
+    </div>
+    <div class="hpy-card text-center">
+      <div class="hpy-card-title">Universal Binaries</div>
+      <div class="hpy-card-content">
+        Extensions built for the HPy Universal ABI can be loaded unmodified on
+        CPython, PyPy, GraalPython, etc.
+      </div>
+    </div>
+    <div class="hpy-card text-center">
+      <div class="hpy-card-title">Debug Mode</div>
+      <div class="hpy-card-content">
+        Easily identify common problems such as memory leaks, invalid lifetime
+        of objects, invalid usage of APIs.
+      </div>
+    </div>
+  </div>
 </div>
 
 <div style="display: flex; justify-content: center">
-  <div class="hpy-card text-center">
-    <div class="hpy-card-title">Performance</div>
-    <div class="hpy-card-content">
-      Much faster on alternative implementations such as PyPy, GraalPy.
-    </div>
-  </div>
-  <div class="hpy-card text-center">
-    <div class="hpy-card-title">Universal Binaries</div>
-    <div class="hpy-card-content">
-      Extensions built for the HPy Universal ABI can be loaded unmodified on CPython, PyPy, GraalPython, etc.
-    </div>
-  </div>
-  <div class="hpy-card text-center">
-    <div class="hpy-card-title">Debug Mode</div>
-    <div class="hpy-card-content">
-      Easily identify common problems such as memory leaks, invalid lifetime of objects, invalid usage of APIs.
+  <div class="hpy-section">
+    <p class="hpy-smalljumbo-title">Articles</p>
+    <div style="display: flex">
+      {{ range first 5 .Site.RegularPages.ByPublishDate.Reverse }}
+      <div class="hpy-blog-card">
+        <a href="{{ .Permalink }}" class="hpy-blog-card-title">{{ .Title }}</a>
+        <p>{{ .PublishDate.Format "January 2, 2006" }} - {{.Params.author}}</p>
+      </div>
+      {{ end }}
     </div>
   </div>
 </div>
 
-<div class="hpy-help-wanted">
-  <p class="hpy-smalljumbo-title">Help Wanted!</p>
+<div style="display: flex; justify-content: center">
+  <div class="hpy-section">
+    <p class="hpy-smalljumbo-title text-center">Help Wanted!</p>
+    <div style="display: flex; justify-content: center">
+      <div class="hpy-card">
+        <div class="hpy-card-title">Documentation</div>
+        <div class="hpy-card-content">
+          We have very limited resources, so we concentrate most of them on
+          technical tasks. If you can chip in, take a look at our GitHub
+          repository.
+        </div>
+      </div>
+
+      <div class="hpy-card">
+        <div class="hpy-card-title">Publicity</div>
+        <div class="hpy-card-content">
+          We appreciate any help for advertising HPy and we are also happy to
+          help preparing talks, demos, etc.
+        </div>
+      </div>
+
+      <div class="hpy-card">
+        <div class="hpy-card-title">Tools</div>
+        <div class="hpy-card-content">
+          Ranging from migration helper tools to do boilerplate work from
+          automated migration from the Python C API to HPy API.
+        </div>
+      </div>
+
+      <div class="hpy-card">
+        <div class="hpy-card-title">Graphic Design</div>
+        <div class="hpy-card-content">
+          We have expertise in virtual machines, compilers, low-level
+          programming, etc, but zero expertise in web development or graphic
+          design. Anything helps!
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {{ end }}
