@@ -1,4 +1,4 @@
-baseURL = 'novialriptide.github.io/hpyproject.org/'
+baseURL = 'hpy.novial.dev'
 languageCode = 'en-us'
 title = 'hpy'
 theme = 'hpy'
